@@ -12,5 +12,12 @@ void compute_main(uint2 tid : SV_DispatchThreadID,
     }
 
     image[tid] = float4(1.0);
-    // TODO: your code here
+    
+    float2 pixel = float2(tid.x, tid.y);
+
+    float distance = length(pixel - center);
+
+    if (distance <= radius) {
+        image[tid] = float4(color, 1.0);
+    }
 }
