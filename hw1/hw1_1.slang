@@ -11,9 +11,9 @@ void compute_main(uint2 tid : SV_DispatchThreadID,
         return;
     }
 
-    image[tid] = float4(1.0);
-    
-    float2 pixel = float2(tid.x, tid.y);
+    image[tid] = float4(0.5, 0.5, 0.5, 1.0);
+
+    float2 pixel = float2(tid.x, height - 1 - tid.y);
 
     float distance = length(pixel - center);
 
