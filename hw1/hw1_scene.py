@@ -190,8 +190,60 @@ def compose_transformation(transforms):
     F = np.eye(3, dtype=np.float32)
 
     for transform in transforms:
-        pass
-        # TODO: your code here
+        if "scale" in transform: 
+            sx, sy = transform["scale"]
+
+            S = np.array([
+                [sx, 0, 0], 
+            [0, sy, 0], 
+            [0, 0, 1]
+            ], dtype=np.float32)
+        
+            F = S @ F
+
+        elif "rotate" in transform: 
+            angle = np.deg2rad(transform["rotate"][0])
+
+            R = np.array([
+                [np.cos(angle), -np.sin(angle), 0], 
+                [np.sin(angle), np.cos(angle), 0], 
+                [0, 0, 1]
+            ], dtype=np.float32)
+
+            F = R @ F
+    
+        elif "translate" in transform: 
+            tx, ty = transform["translate"]
+       
+            T = np.array([
+                [1, 0, tx], 
+                [0, 1, ty], 
+                [0, 0, 1]
+            ], dtype=np.float32)
+
+            F = T @ F
+
+        elif "shear_x" in transform:
+            lx = transform["shear_x"][0]
+
+            H = np.array([
+                [1, lx, 0],
+                [0, 1, 0],
+                [0, 0, 1]
+            ], dtype=np.float32)
+
+            F = H @ F
+    
+        elif "shear_y" in transform:
+            ly = transform["shear_y"][0]
+
+            H = np.array([
+                [1, 0, 0],
+                [ly, 1, 0],
+                [0, 0, 1]
+            ], dtype=np.float32)
+
+            F = H @ F
 
     return F
 
