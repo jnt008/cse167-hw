@@ -22,7 +22,7 @@ void compute_main(uint2 tid : SV_DispatchThreadID,
 
     float2 pixel = float2(tid.x + 0.5, height - tid.y - 0.5); 
 
-    for (int s = 0; s < num_shapes; s++) {
+    for (int s = num_shapes - 1; s >= 0; s--) {
 	Shape shape = shapes[s]; 
 	
 	if (shape.type == ShapeType.Circle) {
