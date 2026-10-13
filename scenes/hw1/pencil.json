@@ -1,0 +1,36 @@
+{
+  "resolution": [800, 800],
+  "background": [0.25, 0.50, 0.85],
+  "objects": [
+    {
+      "type": "polyline",
+      "points": [384, 182, 416, 182, 400, 150],
+      "closed": true,
+      "fill_rgba": [0.2, 0.2, 0.25, 1.0]
+    },
+    {
+      "type": "polyline",
+      "points": [350, 250, 450, 250, 400, 150],
+      "closed": true,
+      "fill_rgba": [0.96, 0.72, 0.4, 1.0]
+    },
+    {
+      "type": "polyline",
+      "points": [350, 250, 450, 250, 450, 570, 350, 570],
+      "closed": true,
+      "fill_rgba": [1.0, 0.8, 0.1, 1.0]
+    },
+    {
+      "type": "polyline",
+      "points": [350, 570, 450, 570, 450, 600, 350, 600],
+      "closed": true,
+      "fill_rgba": [0.72, 0.76, 0.85, 1.0]
+    },
+    {
+      "type": "polyline",
+      "points": [350, 600, 450, 600, 450, 650, 350, 650],
+      "closed": true,
+      "fill_rgba": [1.0, 0.45, 0.6, 1.0]
+    }
+  ]
+}
